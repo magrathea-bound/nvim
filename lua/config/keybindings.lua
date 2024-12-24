@@ -21,8 +21,11 @@ keymap("n", "<Leader>wk", ":close<CR>", opts)
 
 --BufferCommands
 keymap("n", "<Leader>bn", ":bnext<CR>", opts)
-keymap("n", "<Leader>bp", ":bdelete<CR>", opts)
+keymap("n", "<Leader>bp", ":bprevious<CR>", opts)
+keymap("n", "<Leader>bk", ":bdelete<CR>", opts)
 
+--File Explorer
+keymap("n", "<Leader>ee", ":Ex<CR>", opts)
 
 --**Insert Mode**--
 keymap("i", "jj", "<ESC>", opts)local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
