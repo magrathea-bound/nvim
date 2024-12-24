@@ -31,8 +31,8 @@ keymap("n", "<Leader>ee", ":Ex<CR>", opts)
 keymap("i", "jj", "<ESC>", opts)local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 
 --**Visual Mode**--
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- keymap('v', '<', '<gv', opts)
+-- keymap('v', '>', '>gv', opts)
 
 --**CoC Completion--
 -- function _G.check_back_space()
