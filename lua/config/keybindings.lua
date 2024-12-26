@@ -1,8 +1,11 @@
 
 --**KeyMaps**--
 local opts = {noremap = true}
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
+--A little somethin somethin for dem emacs users
+--scratch that not working for some reason and cant be bothered...
+keymap("", "<C-g>", "<Esc>")
 
 --**Normal Mode**--
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -10,9 +13,24 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+--**Insert Mode**--
+keymap("i", "jj", "<ESC>", opts)local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+
 --Leader Commands--
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+--Doc format map leaders
+vim.keymap.set("n", "<leader>xp", [["+p]])
+vim.keymap.set({"n", "v"}, "<leader>xy", [["+y]])
+vim.keymap.set("n", "<leader>xY", [["+Y]])
+-- keymap("n", "<Leader>xp", [["+p]], opts)
+-- keymap("n", "<Leader>xy", '\"+y', opts)
+-- keymap("n", "<Leader>xY", '\"+Y', opts)
+-- keymap("v", "<Leader>xy", '\"+y', opts)
+
+keymap("n", "<Leader>xo", "o<ESC>k")
+keymap("n", "<Leader>xO", "O<ESC>k")
 
 --Window Commands
 keymap("n", "<Leader>wv", ":vsplit<CR>", opts)
@@ -25,25 +43,21 @@ keymap("n", "<Leader>bp", ":bprevious<CR>", opts)
 keymap("n", "<Leader>bk", ":bdelete<CR>", opts)
 
 --File Explorer
-keymap("n", "<Leader>ee", ":Ex<CR>", opts)
+keymap("n", "<Leader>e", ":Ex<CR>", opts)
 
---**Insert Mode**--
-keymap("i", "jj", "<ESC>", opts)local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+--Experimentation on some shpiffy Primeagen commands
+--https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/remap.lua
+--Moves lines up or down and auto indents
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '<-2<CR>gv=gv")
 
---**Visual Mode**--
--- keymap('v', '<', '<gv', opts)
--- keymap('v', '>', '>gv', opts)
+--keeps cursor still with J
+keymap("n", "J", "mzJ`z")
 
---**CoC Completion--
--- function _G.check_back_space()
---     local col = vim.fn.col('.') - 1
---     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
--- end
--- keymap("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
--- keymap("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
---
--- -- Make <CR> to accept selected completion item or notify coc.nvim to format
--- keymap("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+--Keeps cursor in middle with search
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
 
---**NvimTree--
---keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+--Search for current word 
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
