@@ -14,36 +14,36 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 --**Insert Mode**--
-keymap("i", "jj", "<ESC>", opts)local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+keymap("i", "jj", "<ESC>", opts)
+--local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 
 --Leader Commands--
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --Doc format map leaders
-vim.keymap.set("n", "<leader>xp", [["+p]])
-vim.keymap.set({"n", "v"}, "<leader>xy", [["+y]])
-vim.keymap.set("n", "<leader>xY", [["+Y]])
--- keymap("n", "<Leader>xp", [["+p]], opts)
--- keymap("n", "<Leader>xy", '\"+y', opts)
--- keymap("n", "<Leader>xY", '\"+Y', opts)
--- keymap("v", "<Leader>xy", '\"+y', opts)
+keymap("n", "<leader>xp", [["+p]])
+keymap({"n", "v"}, "<leader>xy", [["+y]])
+keymap("n", "<leader>xY", [["+Y]])
 
+--Add Lines 
 keymap("n", "<Leader>xo", "o<ESC>k")
 keymap("n", "<Leader>xO", "O<ESC>k")
 
 --Window Commands
-keymap("n", "<Leader>wv", ":vsplit<CR>", opts)
-keymap("n", "<Leader>ws", ":split<CR>", opts)
-keymap("n", "<Leader>wk", ":close<CR>", opts)
+keymap("n", "<Leader>wv", ":vsplit<CR>")
+
+keymap("n", "<Leader>wv", ":vsplit<CR>")
+keymap("n", "<Leader>ws", ":split<CR>")
+keymap("n", "<Leader>wk", ":close<CR>")
 
 --BufferCommands
-keymap("n", "<Leader>bn", ":bnext<CR>", opts)
-keymap("n", "<Leader>bp", ":bprevious<CR>", opts)
-keymap("n", "<Leader>bk", ":bdelete<CR>", opts)
+keymap("n", "<Leader>bn", vim.cmd.bnext)
+keymap("n", "<Leader>bp", vim.cmd.bprevious)
+keymap("n", "<Leader>bk", vim.cmd.bdelete)
 
 --File Explorer
-keymap("n", "<Leader>e", ":Ex<CR>", opts)
+keymap("n", "<leader>e", vim.cmd.Ex)
 
 --Experimentation on some shpiffy Primeagen commands
 --https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/remap.lua
@@ -59,5 +59,5 @@ keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
 --Search for current word 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
