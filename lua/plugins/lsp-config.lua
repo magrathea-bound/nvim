@@ -20,6 +20,7 @@ return {
             }
         })
         local cmp = require('cmp')
+        local snips = require('luasnip')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
@@ -90,8 +91,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
+                    elseif snips.expand_or_jumpable() then
+                        snips.expand_or_jump()
                     else
                         fallback()
                     end
@@ -100,8 +101,8 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
+                    elseif snips.jumpable(-1) then
+                        snips.jump(-1)
                     else
                         fallback()
                     end
@@ -110,7 +111,7 @@ return {
 
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
+                { name = 'snips' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
             })

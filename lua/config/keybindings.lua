@@ -13,9 +13,11 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<C-b>", ":bnext<CR>", opts)
+--keymap("n", "<C-B>", ":bprevious<CR>", opts)
+
 --**Insert Mode**--
 keymap("i", "jj", "<ESC>", opts)
---local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 
 --Leader Commands--
 vim.g.mapleader = " "
