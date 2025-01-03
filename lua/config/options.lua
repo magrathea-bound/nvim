@@ -1,5 +1,5 @@
 local o = vim.o
---Comments for my own sanity when I revisit this in a few months
+
 o.termguicolors = true
 
 --Shows vim tabs, not tab tabs...
@@ -13,7 +13,6 @@ o.relativenumber = true
 o.number = true
 
 o.smartcase = true
-o.hlsearch = false
 o.incsearch = true
 
 o.splitbelow = true

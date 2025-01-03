@@ -14,7 +14,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-b>", ":bnext<CR>", opts)
---keymap("n", "<C-B>", ":bprevious<CR>", opts)
+keymap("n", "<C-B>", ":bprevious<CR>", opts)
 
 --**Insert Mode**--
 keymap("i", "jj", "<ESC>", opts)
@@ -30,7 +30,7 @@ keymap("n", "<leader>xY", [["+Y]])
 
 --Add Lines 
 keymap("n", "<Leader>xo", "o<ESC>k")
-keymap("n", "<Leader>xO", "O<ESC>k")
+keymap("n", "<Leader>xO", "O<ESC>j")
 
 --Window Commands
 keymap("n", "<Leader>wv", ":vsplit<CR>")
