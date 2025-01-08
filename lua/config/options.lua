@@ -5,8 +5,6 @@ o.termguicolors = true
 --Shows vim tabs, not tab tabs...
 o.showtabline = 4
 
-o.cursorline = true
-
 o.mouse='a'
 
 o.relativenumber = true
@@ -25,4 +23,4 @@ o.smartindent = true
 
 o.scrolloff = 8
 
-o.colorcolumn = '100'
+o.colorcolumn = '80'
