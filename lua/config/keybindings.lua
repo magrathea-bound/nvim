@@ -32,6 +32,9 @@ keymap("n", "<leader>xY", [["+Y]])
 keymap("n", "<Leader>xo", "o<ESC>k")
 keymap("n", "<Leader>xO", "O<ESC>j")
 
+--Seach highlight removal
+keymap("n", "<Leader>xh", "nohlsearch")
+
 --Window Commands
 keymap("n", "<Leader>wv", ":vsplit<CR>")
 
