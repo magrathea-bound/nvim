@@ -1,20 +1,15 @@
 
 --**KeyMaps**--
-local opts = {noremap = true}
+local opts = {noremap = true, silent = true}
 local keymap = vim.keymap.set
-
---A little somethin somethin for dem emacs users
---scratch that not working for some reason and cant be bothered...
-keymap("", "<C-g>", "<Esc>")
 
 --**Normal Mode**--
 keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-b>", ":bnext<CR>", opts)
-keymap("n", "<C-B>", ":bprevious<CR>", opts)
 
 --**Insert Mode**--
 keymap("i", "jj", "<ESC>", opts)
@@ -33,7 +28,7 @@ keymap("n", "<Leader>xo", "o<ESC>k")
 keymap("n", "<Leader>xO", "O<ESC>j")
 
 --Seach highlight removal
-keymap("n", "<Leader>xh", "nohlsearch")
+keymap("n", "<Leader>xh", ":nohlsearch<CR>", {silent = true})
 
 --Window Commands
 keymap("n", "<Leader>wv", ":vsplit<CR>")
@@ -66,3 +61,19 @@ keymap("n", "N", "Nzzzv")
 --Search for current word 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+--Can't be bothered to remember %
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    local opts = { buffer = true, noremap = true, silent = true }
+
+    -- Example: map 'l' to open file/directory (like netrw's default <CR>)
+    vim.keymap.set("n", "l", "<CR>", opts)
+
+    -- Example: map 'h' to go up a directory
+    vim.keymap.set("n", "h", "-", opts)
+
+    -- Example: map 'q' to close netrw
+    vim.keymap.set("n", "q", ":q<CR>", opts)
+  end,
+})
