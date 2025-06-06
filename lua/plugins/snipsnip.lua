@@ -20,16 +20,16 @@ return {
             end, {silent = true})
 
              vim.keymap.set({ "i", "s" }, "<C-j>", function()
-                  if luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
+                  if ls.expand_or_jumpable() then
+                    ls.expand_or_jump()
                   else
                     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, false, true), "n", true)
                   end
                 end, { silent = true, desc = "Jump to next snippet placeholder" })
 
                 vim.keymap.set({ "i", "s" }, "<C-k>", function()
-                  if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
+                  if ls.jumpable(-1) then
+                    ls.jump(-1)
                   else
                     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true), "n", true)
                   end
